@@ -1,1 +1,69 @@
-cc
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vidéo muette + audio OGG</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+    }
+    video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Vidéo muette -->
+  <video
+    id="myVideo"
+    src="Sequence_01_1.mp4"
+    autoplay
+    muted
+    playsinline>
+    Votre navigateur ne supporte pas la balise vidéo.
+  </video>
+
+  <!-- Audio externe -->
+  <audio
+    id="myAudio"
+    src="sound.ogg"
+    preload="auto">
+    Votre navigateur ne supporte pas la balise audio.
+  </audio>
+
+  <script>
+    const v = document.getElementById('myVideo');
+    const a = document.getElementById('myAudio');
+
+    // Fonction pour lancer vidéo + audio
+    function playAll() {
+      v.play().catch(_=> console.log('Vidéo autoplay bloquée'));
+      a.play().catch(_=> console.log('Audio autoplay bloqué'));
+    }
+
+    // Si l'utilisateur clique sur la vidéo, on relance vidéo et audio
+    v.addEventListener('click', playAll);
+
+    // Dès que la vidéo démarre (autoplay ou clic), on s'assure que l'audio démarre
+    v.addEventListener('play', () => {
+      if (a.paused) {
+        a.play().catch(_=> console.log('Audio autoplay bloqué'));
+      }
+    });
+
+    // Quand la vidéo est finie, on stoppe l'audio puis on redirige
+    v.addEventListener('ended', () => {
+      a.pause();
+      window.location.href = 'load.html';
+    });
+
+    // Essai de lecture immédiate pour maximiser les chances d'autoplay
+    playAll();
+  </script>
+</body>
+</html>

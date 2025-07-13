@@ -1,0 +1,27 @@
+.image-banner {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem; /* espace entre l'image et les formes */
+}
+
+.banner-img {
+  width: 100%;   /* s'adapte à la largeur dispo */
+  max-width: 960px; /* ajuste selon la taille de ton image */
+  height: auto;
+}
+
+.shapes-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* aligné à gauche */
+  align-items: center;
+  gap: 1rem;
+  margin-left: 0; /* collé au bord gauche */
+  margin-top: 0;  /* Aucun espacement au-dessus */
+}
+
+.loader {
+  /* tes styles pour le SVG, exemple */
+  width: 60px;
+  height: 60px;
+}

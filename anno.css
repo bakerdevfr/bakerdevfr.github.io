@@ -1,0 +1,14 @@
+#announcement {
+  position: fixed;       /* pour qu’il reste en haut même au scroll */
+  top: 10px;             /* distance depuis le haut (ajustez) */
+  left: 50%;             /* positionné au milieu de l’écran */
+  transform: translateX(-50%); /* recentrage exact */
+  z-index: 1000;         /* au-dessus des autres éléments */
+  /* — styles optionnels — */
+  padding: 8px 16px;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+}
